@@ -74,12 +74,37 @@ const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
 // We use your `filter` function here, capturing a new array into `filteredNames`
 // comprised of names that only begin with 'R'
 const filteredNames = filter(myNames, (name) => name[0] === 'R');
-  // This is known as a "predicate function" - it's a function that 
-  // only returns a boolean
+// This is known as a "predicate function" - it's a function that 
+// only returns a boolean
 
 
-console.log(filteredNames) // => ['Rich', 'Ray']
+//console.log(filteredNames) // => ['Rich', 'Ray']
 // <---- DO NOT EDIT BETWEEN THESE LINES
+
+function hazardWarningCreator(typeOfWarning) {
+  let warningCounter = 0;
+  return function (location) {
+    warningCounter++;
+    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}`);
+    if (warningCounter === 1) {
+      console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time today!`);
+    }
+    if (warningCounter === 0 || warningCounter >= 2) {
+      console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+    }
+  };
+}
+
+const rocksWarning = hazardWarningCreator('Rocks on the Road');
+const floodWarning = hazardWarningCreator('Flooding everywhere');
+const earthquakeWarning = hazardWarningCreator('Earthquake happening now');
+
+console.log(rocksWarning('main st and pacific ave'));
+console.log(rocksWarning('church st and orange ave'));
+console.log(floodWarning('all over the damn place'));
+console.log(floodWarning('only in pacific beach'));
+console.log(earthquakeWarning('san diego and la'));
+console.log(earthquakeWarning('san francisco and sacramento'));
 
 
 
