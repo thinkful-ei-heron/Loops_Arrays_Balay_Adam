@@ -31,5 +31,16 @@ function min(numbers) {
 }
 
 
+function average(numbers) {
+  let total = 0;
+  numbers.forEach(function(num) {
+    total = total + num;
+  });
+  return total / numbers.length;
+}
+
+console.log(average([1, 2, 3]));
+
+
 
 
