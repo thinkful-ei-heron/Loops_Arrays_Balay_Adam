@@ -111,9 +111,30 @@ const earthquakeWarning = hazardWarningCreator('Earthquake happening now');
 
 function turtleSteps(arr) {
   let filtered = arr.filter(item => Math.min(...item) >= 0);
+  //console.log(filtered);
   let integers = filtered.map(steps => steps[0] + steps[1]);
-  let total = integers.forEach(turtle => console.log('Movement #' + (integers.indexOf(turtle) + 1) + ': ' + turtle + ' steps'));
+  //console.log(integers);
+  let total = integers.forEach((turtle, i) => {
+    console.log('Movement #' + (i + 1) + ': ' + turtle + ' steps');
+  });
 }
 
 
-console.log(turtleSteps([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]));
+turtleSteps([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]);
+
+function decoded(words) {
+  let arr = words.split(' ');
+  let code = arr.reduce((str, word) => {
+    //console.log(word, str);
+    if (word.length === 3) {
+      str += ' ';
+    } else {
+      let last = word.slice(-1).toUpperCase();
+      str += last;
+    }
+    return str;
+  },'');
+  return code;
+}
+
+//console.log(decoded('noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'));
