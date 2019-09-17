@@ -99,12 +99,21 @@ const rocksWarning = hazardWarningCreator('Rocks on the Road');
 const floodWarning = hazardWarningCreator('Flooding everywhere');
 const earthquakeWarning = hazardWarningCreator('Earthquake happening now');
 
-console.log(rocksWarning('main st and pacific ave'));
-console.log(rocksWarning('church st and orange ave'));
-console.log(floodWarning('all over the damn place'));
-console.log(floodWarning('only in pacific beach'));
-console.log(earthquakeWarning('san diego and la'));
-console.log(earthquakeWarning('san francisco and sacramento'));
+//console.log(rocksWarning('main st and pacific ave'));
+//console.log(rocksWarning('church st and orange ave'));
+//console.log(floodWarning('all over the damn place'));
+//console.log(floodWarning('only in pacific beach'));
+//console.log(earthquakeWarning('san diego and la'));
+//console.log(earthquakeWarning('san francisco and sacramento'));
 
 
 
+
+function turtleSteps(arr) {
+  let filtered = arr.filter(item => Math.min(...item) >= 0);
+  let integers = filtered.map(steps => steps[0] + steps[1]);
+  let total = integers.forEach(turtle => console.log('Movement #' + (integers.indexOf(turtle) + 1) + ': ' + turtle + ' steps'));
+}
+
+
+console.log(turtleSteps([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]));
