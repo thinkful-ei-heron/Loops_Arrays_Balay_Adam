@@ -39,7 +39,22 @@ function average(numbers) {
   return total / numbers.length;
 }
 
-console.log(average([1, 2, 3]));
+function repeat(fn, n) {
+  for (let i = 1; i <= n; i++) {
+    fn();
+  }
+}
+
+function hello() {
+  console.log('Hello world');
+}
+
+function goodbye() {
+  console.log('Goodbye world');
+}
+
+console.log(repeat(hello, 5));
+console.log(repeat(goodbye, 5));
 
 
 
